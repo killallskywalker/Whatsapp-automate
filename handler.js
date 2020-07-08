@@ -23,12 +23,20 @@ const wish = [
 	]
 
 module.exports.sendWish = (event, context, callback) => {
+	const a = 'aa';
+	const b = 'aa';
 	  client.messages.create({
 	  from: 'whatsapp:+14155238886',
 	  body: wish[Math.floor(Math.random() * wish.length)], //randomly choose text to send
 	  to: `whatsapp:${process.env.TWILIO_SID}`
+
+
 	}).then(message => callback(null,`Message id: ${message.sid} ${process.env.TWILIO_SID}`))
-	  .catch((err) => {
+	  
+	
+	
+	
+	.catch((err) => {
         callback(null,`Error ${err}`)
     });
 };
